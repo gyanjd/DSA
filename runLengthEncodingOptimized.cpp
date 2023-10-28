@@ -1,22 +1,27 @@
-// time  - O(n)^2 due to using string that immutable.
-// space O(n)
+// time - O(n), space O(n)
 
 void solve(){
     string str;
     cin >> str;
     
-    string ans = "";
+    vector<char> ans;
+    vi length;
+
     int count = 1;
     char curCharacter = str[0];
     for(int i=1; i<str.size(); i++){
         if(str[i] != str[i-1] || count >= 9){
-            ans += to_string(count) + curCharacter;
+            length.push_back(count);
+            ans.push_back(curCharacter);
             count = 1;
             curCharacter = str[i];
         } else {
             count++;
         }        
     }
-    ans += to_string(count) + curCharacter;
-    cout << ans;
+    length.push_back(count);
+    ans.push_back(curCharacter);
+
+    for(int i=0; i<length.size(); i++)
+        cout << length[i] << ans[i];
 }

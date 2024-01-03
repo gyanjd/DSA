@@ -1,3 +1,4 @@
+// sum trick
 vector<int> missingNumbers(vector<int> nums) {
   vector<int> result;
 
